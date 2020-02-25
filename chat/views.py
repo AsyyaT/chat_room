@@ -3,9 +3,6 @@ from rest_framework.generics import CreateAPIView, ListAPIView, RetrieveAPIView
 from chat.models import Message
 from chat.serializers import MessageSerializer, MessageDetailSerializer
 
-from chat_room.pagination import CustomPagination
-
-
 __all__ = [
     'MessageCreateAPIView',
     'MessageListAPIView',
@@ -22,11 +19,10 @@ class MessageCreateAPIView(CreateAPIView):
 
 class MessageListAPIView(ListAPIView):
     """
-    View displays list of messages 10 per page
+    View displays list of all messages with pagination
     """
     queryset = Message.objects.all()
     serializer_class = MessageSerializer
-    pagination_class = CustomPagination
 
 
 class SingleMessageAPIView(RetrieveAPIView):
@@ -35,3 +31,5 @@ class SingleMessageAPIView(RetrieveAPIView):
     """
     queryset = Message.objects.all()
     serializer_class = MessageDetailSerializer
+
+

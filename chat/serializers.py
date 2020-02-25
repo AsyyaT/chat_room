@@ -15,7 +15,8 @@ def validate_message(value):
 
 
 def validate_text(value):
-    if not re.match(r"^\w{1:100}", value):
+    # if not re.match(r"^(?=[\S\s]{1,100}$)[\S\s]*", value):
+    if not re.match(r"^(?=.{1,100}$).*", value):
         raise serializers.ValidationError(
             "Your text is not valid. The number of characters can't be more than one hundred."
         )
@@ -27,7 +28,7 @@ class MessageSerializer(serializers.ModelSerializer):
     MessageSerializer for create message and list of messages serializer
     """
     email = serializers.EmailField(allow_null=False, allow_blank=False, validators=[validate_message])
-    text = serializers.CharField(allow_blank=False, allow_null=False, validators=[validate_text])
+    text = serializers.CharField(allow_null=False, allow_blank=False, validators=[validate_text])
 
     class Meta:
         model = Message

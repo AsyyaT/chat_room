@@ -6,3 +6,5 @@ from django.urls import reverse
 def test_api_for_list_message(client):
     response = client.get(reverse('message_list'))
     assert response.status_code == 200
+
+
