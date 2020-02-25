@@ -1,13 +1,4 @@
-import re
-
-from django.core.exceptions import ValidationError
 from django.db import models
-
-
-def validate_message(value):
-    if not re.match(r"^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,3})+$", value):
-        raise ValidationError("Your email don't valid")
-    return value
 
 
 class Message(models.Model):
@@ -17,7 +8,6 @@ class Message(models.Model):
     email = models.EmailField(
         null=False,
         verbose_name='Email',
-        # validators=[validate_message]
     )
     text = models.TextField(
         null=False,

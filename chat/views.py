@@ -1,13 +1,13 @@
 from rest_framework.generics import CreateAPIView, ListAPIView, RetrieveAPIView
 
 from .models import Message
-from .serializers import MessageSerializer, MessageDetailSerializer
+from .serializers import MessageSerializer, MessageDetailSerializer, MessageCreateSerializer
 
 from chat_room.pagination import CustomPagination
 
 
 class MessageCreateAPIView(CreateAPIView):
-    serializer_class = MessageSerializer
+    serializer_class = MessageCreateSerializer
 
 
 class MessageListAPIView(ListAPIView):
