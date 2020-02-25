@@ -21,6 +21,16 @@ class MessageSerializer(serializers.ModelSerializer):
         model = Message
         fields = ('id', 'email', 'text')
 
+    # def validate(self, data):
+    #     errors = {}
+    #     email = data.get('email')
+    #
+    #     if not re.match(r"^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,3})+$", email):
+    #         errors['error'] = u'You\'re an idiot!'
+    #         raise serializers.ValidationError(errors)
+    #
+    #     return data
+
 
 class MessageDetailSerializer(serializers.ModelSerializer):
 
