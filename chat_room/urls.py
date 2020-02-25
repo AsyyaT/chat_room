@@ -41,12 +41,3 @@ urlpatterns += [
     path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
 ]
 
-
-# from rest_framework.schemas import get_schema_view
-#
-#
-# urlpatterns += [
-#     path('openapi/', get_schema_view(title="Message API", description="API for chat room"), name='openapi-schema'),
-# ]
-
-
