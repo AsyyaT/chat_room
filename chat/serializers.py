@@ -8,7 +8,7 @@ __all__ = [
 ]
 
 
-def validate_message(value):
+def validate_email(value):
     if not re.match(r"^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,3})+$", value):
         raise serializers.ValidationError("Your email is not valid.")
     return value
@@ -27,8 +27,8 @@ class MessageSerializer(serializers.ModelSerializer):
     """
     MessageSerializer for create message and list of messages serializer
     """
-    email = serializers.EmailField(allow_null=False, allow_blank=False, validators=[validate_message])
-    text = serializers.CharField(allow_null=False, allow_blank=False, validators=[validate_text])
+    email = serializers.EmailField(validators=[validate_email])
+    text = serializers.CharField(validators=[validate_text])
 
     class Meta:
         model = Message
