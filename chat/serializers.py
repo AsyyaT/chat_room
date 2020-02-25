@@ -16,7 +16,9 @@ def validate_message(value):
 
 def validate_text(value):
     if not re.match(r"^\w{1:100}", value):
-        raise serializers.ValidationError("Your text is not valid. The number of characters can't be more than one hundred.")
+        raise serializers.ValidationError(
+            "Your text is not valid. The number of characters can't be more than one hundred."
+        )
     return value
 
 

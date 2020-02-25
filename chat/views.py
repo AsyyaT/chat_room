@@ -1,7 +1,7 @@
 from rest_framework.generics import CreateAPIView, ListAPIView, RetrieveAPIView
 
-from .models import Message
-from .serializers import MessageSerializer, MessageDetailSerializer
+from chat.models import Message
+from chat.serializers import MessageSerializer, MessageDetailSerializer
 
 from chat_room.pagination import CustomPagination
 
