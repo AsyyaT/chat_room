@@ -4,7 +4,9 @@
 
 ## General info
 
-Chat Room gives you ability chat and read message 
+Chat Room gives you ability chat and read message
+You can find life site [here](https://chatingrooom.herokuapp.com/).
+  
 
 
 ## Setup  
